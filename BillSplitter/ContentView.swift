@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var bill = Bill(totalAmount: 0.0, numberOfPeople: 1, tipPercent: 15.0)
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack {
+                Image(systemName: "dollarsign.ring.dashed")
+                    .font(.largeTitle)
+                
+                Text("Bill Splitter")
+                    .font(.largeTitle)
+                    .bold()
+            }
+            .foregroundStyle(.mint)
         }
         .padding()
+        
+        BillSplitView(bill: $bill)
     }
 }
 
